@@ -77,6 +77,7 @@ string Integer_to_string(const Integer& i)
 
 int main(int argc, char* argv[])
 {
+    //step 1: Initialize system params
     AutoSeededRandomPool rng;
     // Contruct  ECP(const Integer &modulus, const FieldElement &A, const FieldElement &B);
 
@@ -138,7 +139,7 @@ int main(int argc, char* argv[])
 
     cout << "---------------------------------\n";
     cout << "____________ECDH_____________\n";
-   
+    //Step2: Self-gen a pair of keys
     Integer privatekeyA = Integer("11517981818447497085967951605465729846919455156164689798014638985875583987829406262183357738592749044441967993136875");// Integer(rng, 2, curve384.GetSubgroupOrder() - 1);
     cout << "Private key A: " << privatekeyA << endl;
     ECP::Point publickeyA = curve384.GetCurve().ScalarMultiply(G, privatekeyA);
